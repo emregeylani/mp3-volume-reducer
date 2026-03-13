@@ -13,7 +13,6 @@ Designed to be simple and dependency-light.
 -   Output filename format:
 
 ```{=html}
-<!-- -->
 ```
     original_filename_volumereduced_XX.mp3
 
