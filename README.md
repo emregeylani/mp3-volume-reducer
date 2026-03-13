@@ -10,15 +10,12 @@ Designed to be simple and dependency-light.
 -   Batch processes all `.mp3` files in a folder
 -   Volume reduction by **percentage (1--99)**
 -   Clear console logs
--   Output filename format:
-
-```{=html}
-    original_filename_volumereduced_XX.mp3
+-   Output filename format: original_filename_volumereduced_XX.mp3
 
 Example:
 
-    song.mp3
-    → song_volumereduced_30.mp3
+``` bash
+song.mp3 → song_volumereduced_30.mp3
 
 ## Requirements
 
