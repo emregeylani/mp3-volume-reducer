@@ -24,7 +24,6 @@ song.mp3 → song_volumereduced_30.mp3
 
 Install ffmpeg on Ubuntu:
 
-``` bash
 sudo apt install ffmpeg
 ```
 
