@@ -29,12 +29,18 @@ def get_mp3_files(path):
     return []
 
 
-def output_name(file, percent):
-    return file.with_name(f"{file.stem}_volumereduced_{percent}.mp3")
+def get_output_dir(path, percent):
+    p = Path(path)
+    base = p.parent if p.is_file() else p
+    return base / f"reduced_volume_{percent}"
 
 
-def reduce_volume(file, percent):
-    out = output_name(file, percent)
+def output_path(file, out_dir):
+    return out_dir / file.name
+
+
+def reduce_volume(file, percent, out_dir):
+    out = output_path(file, out_dir)
 
     factor = 1 - (percent / 100)
 
@@ -73,10 +79,14 @@ def main():
         warn("No mp3 files found")
         sys.exit(1)
 
+    out_dir = get_output_dir(target, percent)
+    out_dir.mkdir(exist_ok=True)
+
     log(f"{len(files)} file(s) found")
+    log(f"Output directory: {out_dir}")
 
     for f in files:
-        reduce_volume(f, percent)
+        reduce_volume(f, percent, out_dir)
 
     log("Done.")
 
